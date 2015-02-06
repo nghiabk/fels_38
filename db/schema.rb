@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205093449) do
+ActiveRecord::Schema.define(version: 20150206043455) do
 
   create_table "answers", force: true do |t|
-    t.string   "v_word"
+    t.string   "content"
     t.integer  "word_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20150205093449) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "learns", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "word_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "learns", ["user_id"], name: "index_learns_on_user_id"
+  add_index "learns", ["word_id"], name: "index_learns_on_word_id"
 
   create_table "lessons", force: true do |t|
     t.string   "name"
@@ -60,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150205093449) do
   end
 
   create_table "words", force: true do |t|
-    t.string   "e_word"
+    t.string   "content"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
