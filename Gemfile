@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'bcrypt',               '3.1.7'
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'faker',                '1.4.2'
+gem 'will_paginate',           '3.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views

@@ -1,8 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */
-
 $gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
@@ -10,9 +8,6 @@ $gray-medium-light: #eaeaea;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
-
-
-/* universal */
 
 html {
   overflow-y: scroll;
@@ -64,9 +59,6 @@ p {
   line-height: 1.7em;
 }
 
-
-/* header */
-
 #logo {
   float: left;
   margin-right: 10px;
@@ -81,8 +73,6 @@ p {
     text-decoration: none;
   }
 }
-
-/* footer */
 
 footer {
   margin-top: 45px;
@@ -108,8 +98,6 @@ footer {
   }
 }
 
-/* miscellaneous */
-
 .debug_dump {
   clear: both;
   float: left;
@@ -117,8 +105,6 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
-
-/* sidebar */
 
 aside {
   section.user_info {
@@ -155,8 +141,6 @@ aside {
   margin-top: 15px;
 }
 
-/* forms */
-
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -181,4 +165,46 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
+.clear{
+  clear: both;
 }
