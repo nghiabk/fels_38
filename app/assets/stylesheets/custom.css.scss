@@ -211,7 +211,6 @@ input {
 
 .clear{
   clear: both;
-  margin-top: 10px;
 }
 
 .checkbox {
@@ -279,5 +278,38 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
+  }
+}
+
+.categories {
+  list-style-type: none;
+  margin-left: 20%;
+  margin-right: 20%;
+  li {  
+    border: 1px solid $gray-medium-light;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .category-words {
+    .category-word {
+      margin-left: 5px;
+      float: left;
+    }   
+  }
+
+  .category-info {
+    .category_name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .link-to-lesson {
+    width: 15%;
+    float: right;
   }
 }
