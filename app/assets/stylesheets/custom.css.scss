@@ -313,3 +313,13 @@ span.picture {
     float: right;
   }
 }
+
+.word_list
+{
+  select {
+    width: 15%;
+  }
+  input[type="submit"] {
+    width: 5%;
+  }
+}

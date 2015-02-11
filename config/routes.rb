@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :words
   resources :relationships,       only: [:create, :destroy]
   resources :categories, only: :index
 end
