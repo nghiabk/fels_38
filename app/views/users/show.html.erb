@@ -3,11 +3,12 @@
   <aside class="col-md-4">
     <section>
       <h1>
-        <%= gravatar_for @user %>
+        <%= gravatar_for @user %><br><br><br><br>
         <%= @user.name %>
       </h1>
     </section>
     <section class="stats">
+     Learned <%= @user.learns.count %> word
       <%= render 'shared/stats' %>
     </section>
   </aside>

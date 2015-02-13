@@ -1,7 +1,17 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
-<%= will_paginate %>
-<ul class="users">
-  <%= render @users %>
-</ul>
-<%= will_paginate %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+    </aside>
+    <aside>
+      <div class="lessons">
+        <h1>Activities</h1>
+        <h2>Learned <%= current_user.lessons.count %> lessons</h2><br>
+        <%= render current_user.lessons %>
+      </div>
+    </aside>
+  </div>
+<% else %>
+<% end %>
