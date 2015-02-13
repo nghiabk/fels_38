@@ -3,4 +3,10 @@ class Category < ActiveRecord::Base
   has_many :lessons, dependent: :destroy
 
   validates :name, presence: true
+
+  def learned_word?(user)
+    learned_word_ids = "SELECT word_id FROM learns WHERE user_id = :user_id"
+    Word.where("id IN (#{learned_word_ids}) AND category_id = :category_id", 
+                                        user_id: user.id, category_id: id)
+  end  
 end
