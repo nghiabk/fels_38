@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]  
   
   def index
-    @users = User.paginate page: params[:page]
   end
   
   def new
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
   def following
     @title = 'Following'
     @user = User.find params[:id]
-    users = @user.following.paginate page: params[:page] 
+    @users = @user.following.paginate page: params[:page] 
     render 'show_follow'
   end
 

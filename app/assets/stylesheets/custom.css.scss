@@ -17,6 +17,10 @@ body {
   padding-top: 60px;
 }
 
+li { 
+  list-style: none 
+}
+
 section {
   overflow: auto;
 }
@@ -207,6 +211,7 @@ input {
 
 .clear{
   clear: both;
+  margin-top: 10px;
 }
 
 .checkbox {
@@ -221,4 +226,58 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.lessons {
+  padding-left: 100px;
+  margin: 0 auto;
+  border-left: 1px solid #123456;
+  width: 530px;
+  min-height: 10px;
+}
+
+.lesson {
+  list-style: none;
+  padding-left:100px;
+  border-left: 1px solid #123456;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
 }

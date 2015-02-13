@@ -59,4 +59,10 @@ class User < ActiveRecord::Base
   def forget
     update_attributes(remember_digest: nil)
   end
+
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+                      WHERE follower_id = :user_id"
+    Lesson.where("user_id IN (#{following_ids})", user_id: id)
+  end
 end
