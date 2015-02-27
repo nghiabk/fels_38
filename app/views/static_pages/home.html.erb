@@ -6,9 +6,14 @@
       </section>
     </aside>
     <aside>
-      <div class="col-md-8">
+      <div class="lessons">
+        <h1>Activities</h1>
+        <h2>Learned <%= current_user.lessons.count %> lessons</h2><br>
+        <%= render current_user.lessons %>
+      </div>
+    </aside>
+    <aside>
         <%= render "shared/feed" %>
-      </div> 
     </aside>
   </div>
 <% else %>
