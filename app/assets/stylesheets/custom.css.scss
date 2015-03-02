@@ -36,8 +36,6 @@ textarea {
   }
 }
 
-/* typography */
-
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -235,38 +233,6 @@ input {
   min-height: 10px;
 }
 
-.lesson {
-  list-style: none;
-  padding-left:100px;
-  border-left: 1px solid #123456;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-  .user {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
-  }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
-
 aside {
   textarea {
     height: 100px;
@@ -316,10 +282,22 @@ span.picture {
 
 .word_list
 {
+  width:20%;
+  height: 100px;
+  margin: 0 auto;
   select {
-    width: 15%;
+    width: 74%;
+    height: 100%;
+    float:left
   }
   input[type="submit"] {
-    width: 5%;
+    margin: 0 auto;
+    width: 24%;
+    height: 90%;
+    float:right
   }
+}
+
+.show_word  {
+  text-align: center;
 }
