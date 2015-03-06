@@ -5,6 +5,13 @@
   </div>  
   <div class="link-to-lesson">
     <%= button_to "Start", '#', class: "btn, btn-lg btn-primary", :method => :get %>
-  </div>  
+  </div>
+  <% if current_user.admin? %>
+    <div class="manage-category">
+      <%= link_to "Add words", new_category_word_path(category) %>
+      <%= link_to "Edit", edit_category_path(category) %>
+      <%= link_to "Delete", category, method: :delete, data: {confirm: "You sure?"} %>
+    </div>
+  <% end %>  
   <div class="clear"></div>  
 </li>  
