@@ -1,9 +1,19 @@
 <% provide(:title, 'Word list') %>
 <h1>Word list</h1>
 <div class="word_list">
-  <%= form_tag("", method: :post) do %>
+  <%= form_tag("", method: :get) do %>
     <%= select_tag(:id, options_for_select([['Basic 500',1], ['Restaurant',2],
     ['Tree',3], ['On the trip',4], ['Advance 1000', 5]])) %>
     <%= submit_tag "filter" %>
   <% end %>
 </div>
+<% unless @category.nil? %>
+  <div class="show_word">
+    <h1><%= @category.name %></h1>
+    <% @words.each do |word| %>
+      <p><%= word.content %>
+        <%= render word.answers %>
+      </p>
+    <% end %>
+  </div>
+<% end %>  

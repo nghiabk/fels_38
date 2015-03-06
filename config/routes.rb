@@ -11,7 +11,10 @@ Rails.application.routes.draw do
       resources :followings, :followers
   end
   resources :relationships,       only: [:create, :destroy]
-  resources :categories, only: :index
-  resources :words
+  resources :categories, only: [:index]
+  resources :words, only: [:index]
 
+  resources :categories, only: [:new, :create, :edit, :update, :destroy] do
+    resources :words, only: [:new, :create, :edit, :update, :destroy]
+  end  
 end
