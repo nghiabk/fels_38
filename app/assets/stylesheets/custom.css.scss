@@ -283,7 +283,7 @@ span.picture {
 .word_list
 {
   width:20%;
-  height: 100px;
+  height: 40px;
   margin: 0 auto;
   select {
     width: 74%;
@@ -299,7 +299,27 @@ span.picture {
 }
 
 .show_word  {
-  text-align: center;
+  table {
+    width: 50%;
+  }
+}
+
+.word_headings {
+  th {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid $gray-medium-light;
+  }
+}
+
+.word_row {
+  td {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid $gray-medium-light;
+  }
 }
 
 .category-form {

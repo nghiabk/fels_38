@@ -1,19 +1,22 @@
 <% provide(:title, 'Word list') %>
-<h1>Word list</h1>
 <div class="word_list">
   <%= form_tag("", method: :get) do %>
-    <%= select_tag(:id, options_for_select([['Basic 500',1], ['Restaurant',2],
-    ['Tree',3], ['On the trip',4], ['Advance 1000', 5]])) %>
+    <%= select_tag(:id, options_from_collection_for_select(Category.all.collect, "id", "name"), prompt: "All") %>
     <%= submit_tag "filter" %>
   <% end %>
 </div>
-<% unless @category.nil? %>
-  <div class="show_word">
+<div class="show_word">
+  <% if @category.nil? %>
+    <h1>All words</h1>
+  <% else %>
     <h1><%= @category.name %></h1>
-    <% @words.each do |word| %>
-      <p><%= word.content %>
-        <%= render word.answers %>
-      </p>
-    <% end %>
-  </div>
-<% end %>
+  <% end %>  
+  <table>
+    <tr class="word_headings">
+      <th>Word</th>
+      <th>Meaning</th>
+    </tr>
+    <%= will_paginate %>
+    <%= render @words %>  
+  </table>  
+</div>

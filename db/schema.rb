@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306084459) do
+ActiveRecord::Schema.define(version: 20150309072240) do
 
   create_table "answers", force: true do |t|
     t.string   "content"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20150306084459) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "meaning"
   end
 
   add_index "words", ["category_id"], name: "index_words_on_category_id"

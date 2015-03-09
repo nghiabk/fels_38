@@ -9,7 +9,7 @@
   </div>
   <% if current_user.admin? %>
     <div class="manage-category">
-      <%= link_to "Add", new_category_word_path(category) %>
+      <%= link_to "Add word", new_category_word_path(category) %>
       <%= link_to "Edit", edit_category_path(category) %>
       <%= link_to "Delete", category, method: :delete, data: {confirm: "You sure?"} %>
     </div>

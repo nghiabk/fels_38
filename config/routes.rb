@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   end
   resources :relationships,       only: [:create, :destroy]
   resources :categories, only: [:index]
-  resources :words, only: [:index]
+  resources :words, only: [:index, :edit, :update, :destroy]
   resources :lessons
   resources :results
 
   resources :categories, only: [:new, :create, :edit, :update, :destroy] do
-    resources :words, only: [:new, :create, :edit, :update, :destroy]
+    resources :words, only: [:new, :create]
   end  
 end
