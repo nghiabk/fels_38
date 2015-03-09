@@ -1,0 +1,52 @@
+<% provide(:title, "Lesson") %>
+<h1><%= @lesson.name %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag lessons_path(@lesson), method: :get do %>
+      <% @words.each_with_index do |word, index| %>
+        <div class="question" id='question_<%= index+1 %>'>
+          <h1>Question <%= index+1 %>: <%= word.content %></h1>        
+          <% word.answers.order('RANDOM()').each_with_index do |answer,index| %>
+            <li class="answer-<%= index+1 %>" data-count="<%= answer.correct %>">        
+              <%= radio_button("result","#{word.id}", answer.id) %>
+              <%= answer.content %>            
+            </li>
+          <% end %>
+          <button type="button" onclick="myFunction(<%= index+1 %>)"
+          id="next-<%= index+1 %>">Next</button>
+        </div>  
+      <% end %>
+      <%= submit_tag 'Submit', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+  var count_correct = 0;
+  $(document).ready(function()
+  {
+    $(".question").hide();
+    $(".question:first").show();
+    $(".row input.btn").hide();
+  });
+ 
+ $("li input").click(function(){
+    $(this).parent().children().removeClass("checked");
+    $(this).addClass("checked");
+  });
+ 
+  $("#next-20").click(function()
+  {
+    count_correct = $('input.checked').parent('li[data-count="true"]').length;
+    $(".row input.btn").show();
+    alert("Ban lam dung: "+count_correct+" cau");
+  });
+
+  function myFunction(id)
+  {
+    new_id = parseInt(id) + 1;
+    old_question_id = "question_" + id;
+    new_question_id = "question_" + new_id;
+    $("#" + old_question_id).hide();
+    $("#" + new_question_id).show();
+  }
+</script>

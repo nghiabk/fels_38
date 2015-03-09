@@ -4,11 +4,12 @@
     <%= category.words.count %>
   </div>  
   <div class="link-to-lesson">
-    <%= button_to "Start", '#', class: "btn, btn-lg btn-primary", :method => :get %>
+    <%= button_to "Start", lesson_path(id: category.id), class: "btn,
+    btn-lg btn-primary", method: :get %>
   </div>
   <% if current_user.admin? %>
     <div class="manage-category">
-      <%= link_to "Add words", new_category_word_path(category) %>
+      <%= link_to "Add", new_category_word_path(category) %>
       <%= link_to "Edit", edit_category_path(category) %>
       <%= link_to "Delete", category, method: :delete, data: {confirm: "You sure?"} %>
     </div>

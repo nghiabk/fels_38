@@ -27,62 +27,30 @@ Category.create!(name:  "Tree")
 Category.create!(name:  "On a trip")
 Category.create!(name:  "Advance 1000")
 
-Word.create!(content: "vietnamese1", category_id: 1)
-Word.create!(content: "vietnamese2", category_id: 2)
-Word.create!(content: "vietnamese3", category_id: 3)
-Word.create!(content: "vietnamese4", category_id: 4)
-Word.create!(content: "vietnamese5", category_id: 5)
-Word.create!(content: "vietnamese6", category_id: 1)
-Word.create!(content: "vietnamese7", category_id: 2)
-Word.create!(content: "vietnamese8", category_id: 3)
-Word.create!(content: "vietnamese9", category_id: 4)
-Word.create!(content: "vietnamese10", category_id: 5)
-Word.create!(content: "vietnamese11", category_id: 1)
-Word.create!(content: "vietnamese12", category_id: 2)
-Word.create!(content: "vietnamese13", category_id: 3)
-Word.create!(content: "vietnamese14", category_id: 4)
-Word.create!(content: "vietnamese15", category_id: 5)
+50.times do |n|
+  content = "japanese#{n+1}"
+  category_id = Random.new.rand 1..5
+  Word.create!(content: content, category_id: category_id)
+end
 
-Answer.create!(content: "japanese1", word_id: 1)
-Answer.create!(content: "japanese2", word_id: 2)
-Answer.create!(content: "japanese3", word_id: 3)
-Answer.create!(content: "japanese4", word_id: 4)
-Answer.create!(content: "japanese5", word_id: 5)
-Answer.create!(content: "japanese6", word_id: 6)
-Answer.create!(content: "japanese7", word_id: 7)
-Answer.create!(content: "japanese8", word_id: 8)
-Answer.create!(content: "japanese9", word_id: 9)
-Answer.create!(content: "japanese10", word_id: 10)
-Answer.create!(content: "japanese11", word_id: 11)
-Answer.create!(content: "japanese12", word_id: 12)
+50.times do |n|
+    content = "vietnamese#{n+1}"
+    Answer.create!(content: content, word_id: n+1, correct: true)
+end
 
-Learn.create!(user_id: 1, word_id: 1)
-Learn.create!(user_id: 1, word_id: 2)
-Learn.create!(user_id: 1, word_id: 3)
-Learn.create!(user_id: 1, word_id: 4)
-Learn.create!(user_id: 2, word_id: 4)
-Learn.create!(user_id: 2, word_id: 3)
-Learn.create!(user_id: 2, word_id: 5)
-Learn.create!(user_id: 2, word_id: 6)
-Learn.create!(user_id: 3, word_id: 7)
-Learn.create!(user_id: 3, word_id: 2)
-Learn.create!(user_id: 3, word_id: 3)
-Learn.create!(user_id: 4, word_id: 9)
-Learn.create!(user_id: 4, word_id: 8)
-Learn.create!(user_id: 4, word_id: 7)
-Learn.create!(user_id: 1, word_id: 7)
-Learn.create!(user_id: 1, word_id: 8)
+3.times do |m|
+  50.times do |n|
+      content = "vietnamese#{m+n+30}"
+      Answer.create!(content: content, word_id: n+1, correct: false)
+  end
+end
 
-Lesson.create!(name: "bai1", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai2", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai3", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai4", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai5", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai6", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai7", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai8", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai9", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai10", user_id: 1, category_id: 1)
-Lesson.create!(name: "bai11", user_id: 2, category_id: 1)
-Lesson.create!(name: "bai12", user_id: 2, category_id: 1)
-Lesson.create!(name: "bai13", user_id: 2, category_id: 1)
+10.times do |n|
+  Learn.create!(user_id: n+1, word_id: n+1)
+end
+
+13.times do |n|
+  content = "Bai#{n+1}"
+  category_id = Random.new.rand 1..5
+  Lesson.create!(name: content, user_id: n+1, category_id: category_id)
+end
