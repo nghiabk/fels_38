@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   resources :categories, only: [:index]
   resources :words, only: [:index]
+  resources :lessons
+  resources :results
 
   resources :categories, only: [:new, :create, :edit, :update, :destroy] do
     resources :words, only: [:new, :create, :edit, :update, :destroy]

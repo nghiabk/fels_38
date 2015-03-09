@@ -5,9 +5,10 @@ class WordsController < ApplicationController
   def index
     unless params[:id].nil?
       @category = Category.find params[:id]
+      @categories = Category.all
       @words = @category.words
-    end  
-  end 
+    end
+  end
 
   def new
     @word = @category.words.build

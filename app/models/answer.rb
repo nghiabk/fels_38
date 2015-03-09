@@ -4,4 +4,5 @@ class Answer < ActiveRecord::Base
 
   validates :content, presence: true
   validates :word, presence: true
+  scope :show_result,->(list_id){where id: list_id }
 end
