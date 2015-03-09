@@ -1,13 +1,15 @@
 class WordsController < ApplicationController
   before_action :logged_in_user
-  before_action :get_category, only: [:new, :create, :edit, :update, :destroy]
+  before_action :get_category, only: [:new, :create]
 
   def index
-    unless params[:id].nil?
+    if params[:id].blank?
+      @words = Word.all
+    else
       @category = Category.find params[:id]
-      @categories = Category.all
       @words = @category.words
     end
+    @words = @words.paginate page: params[:page] 
   end
 
   def new
@@ -27,11 +29,11 @@ class WordsController < ApplicationController
   end  
 
   def edit
-    @word = @category.words.find params[:id]
+    @word = Word.find params[:id]
   end  
 
   def update
-    @word = @category.words.find params[:id]
+    @word = Word.find params[:id]
     if @word.update_attributes word_params
       flash[:success] = "Update word success"
       redirect_to words_url
@@ -41,15 +43,15 @@ class WordsController < ApplicationController
   end
 
   def destroy
-    @category.words.find(params[:id]).destroy
+    Word.find(params[:id]).destroy
     flash[:success] = "Delete success"
     redirect_to words_url
   end  
 
   private
   def word_params
-    params.require(:word).permit(:content,
-      answers_attributes: [:id, :content, :_destroy])
+    params.require(:word).permit :content, :meaning,
+      answers_attributes: [:id, :content, :_destroy]
   end
     
   def get_category

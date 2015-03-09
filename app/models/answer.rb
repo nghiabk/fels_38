@@ -3,6 +3,5 @@ class Answer < ActiveRecord::Base
   has_many :results, dependent: :destroy
 
   validates :content, presence: true
-  validates :word, presence: true
-  scope :show_result,->(list_id){where id: list_id }
+  scope :show_result,->(list_id){where id: list_id}
 end

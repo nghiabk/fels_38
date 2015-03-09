@@ -29,21 +29,22 @@ Category.create!(name:  "Advance 1000")
 
 50.times do |n|
   content = "japanese#{n+1}"
+  meaning = "meaning word #{n+1}"
   category_id = Random.new.rand 1..5
-  Word.create!(content: content, category_id: category_id)
+  Word.create!(content: content, meaning: meaning, category_id: category_id)
 end
 
-50.times do |n|
-    content = "vietnamese#{n+1}"
-    Answer.create!(content: content, word_id: n+1, correct: true)
-end
+# 50.times do |n|
+#     content = "vietnamese#{n+1}"
+#     Answer.create!(content: content, word_id: n+1, correct: true)
+# end
 
-3.times do |m|
-  50.times do |n|
-      content = "vietnamese#{m+n+30}"
-      Answer.create!(content: content, word_id: n+1, correct: false)
-  end
-end
+# 3.times do |m|
+#   50.times do |n|
+#       content = "vietnamese#{m+n+30}"
+#       Answer.create!(content: content, word_id: n+1, correct: false)
+#   end
+# end
 
 10.times do |n|
   Learn.create!(user_id: n+1, word_id: n+1)
