@@ -12,6 +12,9 @@ class LessonsController < ApplicationController
   end
 
   def index
+  end
+
+  def create
     if params[:result]
       @question_list = params[:result]
       answer_ids = @question_list.values

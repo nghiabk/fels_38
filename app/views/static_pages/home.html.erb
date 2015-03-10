@@ -5,6 +5,12 @@
         <%= render 'shared/user_info' %>
       </section>
     </aside>
+    <div class="show_home">
+      <%= button_to "Word List", words_path, class: "btn,
+      btn-lg btn-primary", method: :get %>
+      <%= button_to "Categories", categories_path, class: "btn,
+      btn-lg btn-primary", method: :get %>
+    </div>
     <aside>
       <div class="lessons">
         <h1>Activities</h1>
