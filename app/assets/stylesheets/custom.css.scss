@@ -50,7 +50,7 @@ h1 {
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: -20px;
   text-align: center;
   font-weight: normal;
   color: $gray-light;
@@ -225,10 +225,10 @@ input {
 }
 
 .lessons {
-  padding-left: 100px;
+  padding-left: 25px;
   margin: 0 auto;
   border-left: 1px solid #123456;
-  width: 530px;
+  width: 448px;
   min-height: 10px;
 }
 
@@ -397,8 +397,13 @@ span.picture {
 }
 
 .show_home  {
-  float: right; 
+  height:56px;
+  width: 298px;
+  margin: 0 auto;
+  margin-bottom: -8px;
   input[type="submit"]  {
+    float: right;
+    margin-left:10px;
     width:110px;
   }
 }
