@@ -1,3 +1,4 @@
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -229,7 +230,7 @@ input {
   padding-left: 100px;
   margin: 0 auto;
   border-left: 1px solid #123456;
-  width: 530px;
+  width: 560px;
   min-height: 10px;
 }
 
@@ -344,4 +345,15 @@ span.picture {
   width: 400px;
   min-heigth: 50px;
   border: 1px solid black;
+}
+
+.user  {
+  padding-top: 10px;
+}
+
+.show_home  {
+  float: right; 
+  input[type="submit"]  {
+    width:110px;
+  }
 }
