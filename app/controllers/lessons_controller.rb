@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
 
   def index
     @category = Category.find params[:category_id]
-    @lessons = @category.lessons_of current_user
+    @lessons = Lesson.get_lessons current_user, @category
     @lessons = @lessons.paginate page: params[:page]
   end
 
@@ -24,6 +24,13 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find params[:id]
   end  
+
+  def destroy
+    lesson = Lesson.find params[:id]
+    lesson.destroy
+    flash[:success] = "Delete lesson success"
+    redirect_to category_lessons_path category_id: lesson.category.id
+  end 
 
   def update
     @lesson = Lesson.find params[:id]

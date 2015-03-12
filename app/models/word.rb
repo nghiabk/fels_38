@@ -3,14 +3,14 @@ class Word < ActiveRecord::Base
   has_many  :answers, dependent: :destroy
   has_many  :learns, dependent: :destroy
 
-  validates :content, presence: true, uniqueness: 
-                {case_sensitive: false, message: "of word has already exist!"}
+  validates :content, presence: true
   validates :meaning, presence: true
   validates :category, presence: true
 
   accepts_nested_attributes_for :answers, allow_destroy: true
   validate :has_correct_answer
-  validate :do_not_duplicate_answer
+  validate :not_duplicate_answer
+  validate :not_duplicate_word_in_category
 
   def get_correct_answer
     answers.each do |answer| 
@@ -27,7 +27,22 @@ class Word < ActiveRecord::Base
     end
   end
 
-  def do_not_duplicate_answer
-    
+  def not_duplicate_answer
+    arr = []
+    answers.each do |answer|
+      arr.push answer.content.strip
+    end  
+    unless arr.uniq.length == arr.length
+      errors.add(:base, "Answers of a word can not duplicated")
+    end  
+  end
+
+  def not_duplicate_word_in_category
+    word = Word.all.where category: self.category
+    word.each do |word|
+      if self.content.strip == word.content.strip
+        errors.add(:base, "Word has existed in this category")
+      end  
+    end  
   end
 end

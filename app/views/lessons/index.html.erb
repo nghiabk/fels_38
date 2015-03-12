@@ -18,9 +18,15 @@
             <%= lesson.results.count %>
           </td>
           <td>
-            <%= button_to "Learn again", category_lesson_path(lesson.category, lesson), 
-                   method: :get, class: "btn btn-primary" %>
-          </td>  
+            <%= button_to "Learn again", category_lesson_path(lesson.category, lesson), method: :get,
+                  class: "btn btn-primary" %>
+          </td>
+          <% if lesson.count_correct_answer == lesson.results.count %>
+            <td>
+              <%= link_to "Delete", lesson, method: :delete, 
+                        data: {confirm: "You sure?"} %>
+            </td>  
+          <% end %>  
         </tr>  
       <% end %>
     </table>

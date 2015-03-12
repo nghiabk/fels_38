@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   resources :categories, only: [:index]
   resources :words, only: [:index, :edit, :update, :destroy]
-  #resources :lessons
   resources :lessons do
     resources :results
   end  
