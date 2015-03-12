@@ -24,6 +24,8 @@
             name: "Lesson #{@lesson.category.lessons.count + 1}"), method: :get, 
             class: "btn btn-primary" %>  
       <div class="clear"></div>   
-      <span>Go to <%= link_to "word lists", words_path(category_id: @lesson.category.id) %> to learn words</span>         
+      <span>Go to <%= link_to "word lists", 
+        words_path(category_id: @lesson.category.id) %> to learn words
+      </span>         
     </div>  
 </div>

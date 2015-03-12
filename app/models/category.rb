@@ -14,9 +14,5 @@ class Category < ActiveRecord::Base
     Word.all.select{|lesson| lesson.category == self}.select do |word|
       !user.learned_words.include? word
     end
-  end
-
-  def lessons_of user
-    user.lessons.select{|category| category == self}
-  end  
+  end 
 end

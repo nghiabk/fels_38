@@ -5,9 +5,10 @@ class Lesson < ActiveRecord::Base
 
   accepts_nested_attributes_for :results, allow_destroy: true
 
-  # validates :name, presence: true
+  validates :name, presence: true
   validates :user, presence: true
   validates :category, presence: true
+  scope :get_lessons, ->(user, category){where user: user, category: category}
 
   def count_correct_answer
     self.results.select{|result| 

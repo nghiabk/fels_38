@@ -10,10 +10,7 @@
           <%= f.fields_for :results, result do |builder| %>
             <% result.word.answers.shuffle.each do |answer| %>
               <%= builder.radio_button :answer_id, answer.id %>
-              <%= label :answer_id, answer.content,
-                class: answer.correct ?
-                "correct" : "" %>
-              <br />
+              <%= label :answer_id, answer.content %><br />
             <% end %>
           <% end %>
       </div>

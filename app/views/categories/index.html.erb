@@ -5,8 +5,8 @@
     <ul class="categories">
       <% if logged_in? && current_user.admin? %>
         <div class="admin-new-category">
-          <%= link_to "Create new category", '#', onclick: "show_category_form()",
-                                                         id: "display-form" %>
+          <%= link_to "Create new category", '#', 
+              onclick: "show_category_form()", id: "display-form" %>
           <div class="category-form">
             <%= render 'category_form' %>
           </div>
