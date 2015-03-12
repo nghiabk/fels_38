@@ -24,7 +24,10 @@ class WordsController < ApplicationController
       end
     end
     @words = @words.paginate page: params[:page]
-
+    respond_to do |format|
+      format.html
+      format.js
+    end  
   end
 
   def new
@@ -60,7 +63,6 @@ class WordsController < ApplicationController
   def destroy
     @word = Word.find params[:id]
     @word.destroy
-    flash[:success] = "Delete success"
     redirect_to words_path category_id: @word.category.id
   end  
 

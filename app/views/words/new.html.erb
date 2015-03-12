@@ -8,7 +8,7 @@
       <%= f.text_field :content, class: "form-control" %>
       <%= f.label :meaning, "Input mean of word" %>
       <%= f.text_field :meaning, class: "form-control" %>
-      <strong>Add answer for this word</strong>
+      <strong>Add answer for this word</strong><br />
       <%= f.fields_for :answers do |builder| %>
         <%= builder.label :content, "Answer: " %>
         <%= builder.text_field :content, class: "form-control" %>

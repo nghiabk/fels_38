@@ -40,7 +40,7 @@ class Word < ActiveRecord::Base
   def not_duplicate_word_in_category
     word = Word.all.where category: self.category
     word.each do |word|
-      if self.content.strip == word.content.strip
+      if self.content.strip == word.content.strip && self.id != word.id
         errors.add(:base, "Word has existed in this category")
       end  
     end  

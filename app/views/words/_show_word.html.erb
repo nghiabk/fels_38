@@ -1,0 +1,47 @@
+<% if @category.nil? %>
+  <h1>All words</h1>
+<% else %>
+  <h1><%= @category.name %></h1>
+<% end %> 
+<% if current_user.admin? && !@category.nil? %>
+  <%= link_to "Add word", new_category_word_path(@category) %>
+<% end %>
+<div class="body-content">
+  <div class="body-left">
+    <div class="table-content">
+      <table>
+        <tr class="word_headings">
+          <th>Word</th>
+          <th>Meaning</th>
+          <% if current_user.admin? %>
+            <th>Action</th>
+          <% end %>
+        </tr>
+        <% @words.slice(0, 15).each do |word| %>
+          <%= render word %>
+        <% end %>  
+      </table>
+    </div>
+  </div>
+  <div class="body-center">
+  </div>
+  <div class="body-right">
+    <div class="table-content">
+      <table>
+        <tr class="word_headings">
+          <th>Word</th>
+          <th>Meaning</th>
+          <% if current_user.admin? %>
+            <th>Action</th>
+          <% end %>
+        </tr>
+        <% (@words.length > 15 ? @words.slice(15, 15) : []).each do |word| %>
+          <%= render word %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="clear"> 
+  </div>
+</div>   
+<%= will_paginate %>

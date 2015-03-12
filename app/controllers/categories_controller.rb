@@ -13,12 +13,15 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new category_params
-    if @category.save
-      flash[:success] = "Category created"
-      redirect_to categories_url
-    else 
-      render 'new'
-    end  
+    respond_to do |format|
+      if @category.save
+        format.html {redirect_to categories_url}
+        format.js {@categories = Category.all}
+      else
+        format.html {render 'new'}
+        format.js {render :js => "window.location.pathname='#{new_category_path}'"}
+      end  
+    end
   end 
 
   def edit
@@ -37,8 +40,11 @@ class CategoriesController < ApplicationController
   
   def destroy
     Category.find(params[:id]).destroy
-    flash[:success] = "Category deleted"
-    redirect_to categories_url
+    @categories = Category.all
+    respond_to do |format|
+      format.html
+      format.js
+    end  
   end  
 
   private

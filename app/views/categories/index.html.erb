@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h1>List all category</h1>
-    <ul class="categories">
+    <ul class="categories_list">
       <% if logged_in? && current_user.admin? %>
         <div class="admin-new-category">
           <%= link_to "Create new category", '#', 
@@ -11,8 +11,10 @@
             <%= render 'category_form' %>
           </div>
         </div>
-      <% end %> 
-      <%= render @categories %>
+      <% end %>
+      <div id="categories"> 
+        <%= render @categories %>
+      </div>
     </ul>  
     <%= will_paginate %>
   </div>
