@@ -15,4 +15,11 @@
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
   </div>
+  <aside>
+    <div class="lessons">
+      <h1>Activities</h1>
+      <h2>Learned <%= @user.lessons.count %> lessons</h2><br>
+      <%= render @user.lessons %>
+    </div>
+  </aside>
 </div>
